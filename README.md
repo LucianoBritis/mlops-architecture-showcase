@@ -32,14 +32,12 @@ graph TD
     subgraph Medallion Lakehouse
         Ingest --> Bronze[("Bronze Layer<br>(Raw)")]:::medallion
         Bronze --> |Raw Splicing| Silver[("Silver Layer<br>(Polars)")]:::medallion
-        Silver --> |Feature Eng & RAG| Gold[("Gold Layer<br>(Polars)")]:::medallion
+        Silver --> |Feature Engineering| Gold[("Gold Layer<br>(Polars Feature Store)")]:::medallion
     end
 
     subgraph Machine Learning Pipeline
         Gold --> DRL["Deep Reinforcement Learning<br>(PyTorch + MLflow)"]:::ml
-        Gold --> Semantic["SignalCortexRAG<br>(LLM)"]:::ml
         DRL --> Inference["Real-Time Inference Engine"]:::ml
-        Semantic --> Inference
     end
 
     subgraph SRE & Infrastructure
@@ -51,7 +49,7 @@ graph TD
 ## Core Technologies
 - **Data Engineering:** Polars (for ultra-fast dataframe manipulation), Lakehouse architecture.
 - **Orchestration:** Prefect (for modern, dynamic dataflow orchestration instead of legacy Airflow).
-- **Machine Learning:** Deep Reinforcement Learning (DRL) for dynamic position sizing, Retrieval-Augmented Generation (RAG) for semantic market analysis.
+- **Machine Learning:** Deep Reinforcement Learning (DRL) for dynamic position sizing based purely on raw statistical market variance.
 - **Package Management:** `uv` for high-performance dependency resolution.
 - **Infrastructure:** Systemd tunings (timeout control), strict Linux environments (Manjaro).
 
