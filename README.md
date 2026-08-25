@@ -12,26 +12,31 @@ The engine is built on a **Lakehouse Medallion Architecture**, optimizing high-f
 
 ```mermaid
 graph TD
+    classDef source fill:#440154,color:#fff,stroke:#fff,stroke-width:2px;
+    classDef medallion fill:#3B528B,color:#fff,stroke:#fff,stroke-width:2px;
+    classDef ml fill:#21918C,color:#fff,stroke:#fff,stroke-width:2px;
+    classDef sre fill:#5EC962,color:#000,stroke:#fff,stroke-width:2px;
+
     subgraph Data Sources
-        B3[B3 Futures Market] --> |Tick Data| Ingest[MT5 Data Loader]
+        B3[B3 Futures Market]:::source --> |Tick Data| Ingest[MT5 Data Loader]:::source
     end
 
     subgraph Medallion Lakehouse
-        Ingest --> Bronze[(Bronze Layer)]
-        Bronze --> |Raw Splicing| Silver[(Silver Layer)]
-        Silver --> |Feature Eng & RAG| Gold[(Gold Layer)]
+        Ingest --> Bronze[(Bronze Layer)]:::medallion
+        Bronze --> |Raw Splicing| Silver[(Silver Layer)]:::medallion
+        Silver --> |Feature Eng & RAG| Gold[(Gold Layer)]:::medallion
     end
 
     subgraph Machine Learning Pipeline
-        Gold --> DRL[Deep Reinforcement Learning]
-        Gold --> Semantic[SignalCortexRAG]
-        DRL --> Inference[Real-Time Inference Engine]
+        Gold --> DRL[Deep Reinforcement Learning]:::ml
+        Gold --> Semantic[SignalCortexRAG]:::ml
+        DRL --> Inference[Real-Time Inference Engine]:::ml
         Semantic --> Inference
     end
 
     subgraph SRE & Infrastructure
-        Inference --> Exec[Order Execution]
-        Exec --> Monitor[SRE Obsidian Loop]
+        Inference --> Exec[Order Execution]:::sre
+        Exec --> Monitor[SRE Obsidian Loop]:::sre
     end
 ```
 
