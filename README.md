@@ -1,5 +1,13 @@
 # Institutional-Grade MLOps Trading Engine (Architecture Showcase)
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2.svg?style=for-the-badge&logo=MLflow&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Polars](https://img.shields.io/badge/Polars-CD792C.svg?style=for-the-badge&logo=Polars&logoColor=white)
+![Prefect](https://img.shields.io/badge/Prefect-ffffff.svg?style=for-the-badge&logo=Prefect&logoColor=blue)
+
+
 Welcome to the architectural showcase of my proprietary Quantitative Trading Engine. 
 
 Due to the sensitive nature of the Alpha-generating strategies and proprietary signals, the source code is kept in a private repository (`britis-investing`). This public repository serves as a **technical showcase** of the data engineering, machine learning pipelines, and Site Reliability Engineering (SRE) practices used to build the platform.
