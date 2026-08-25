@@ -6,7 +6,11 @@ injects the audit results into an Obsidian vault for the Agent's "Golden Memory"
 """
 
 import os
+import logging
 from datetime import datetime
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class MLOpsAuditor:
     def __init__(self, vault_path: str):
@@ -41,7 +45,7 @@ class MLOpsAuditor:
         with open(filepath, "w") as f:
             f.write(md_content)
         
-        print(f"✅ SRE Alert injected into Obsidian Vault: {filepath}")
+        logger.info(f"✅ SRE Alert injected into Obsidian Vault: {filepath}")
 
 # Usage Example:
 # auditor = MLOpsAuditor("/home/user/Obsidian/TradingVault")
