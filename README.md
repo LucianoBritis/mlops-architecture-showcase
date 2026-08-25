@@ -38,7 +38,7 @@ graph TD
     subgraph Machine Learning Pipeline
         Gold --> DRL["Deep Reinforcement Learning<br>(PyTorch)"]:::ml
         DRL --> Registry["Model Registry & Tracking<br>(MLflow)"]:::ml
-        Registry --> |"Production Approval:<br>Sharpe > 1.5, Drawdown < 5%"| Inference["Real-Time Inference Engine"]:::ml
+        Registry --> |"Production Approval:<br>p-value < 0.05"| Inference["Real-Time Inference Engine"]:::ml
     end
 
     subgraph SRE & Infrastructure
