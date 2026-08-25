@@ -1,0 +1,22 @@
+[project]
+name = "mlops-architecture-showcase"
+version = "1.0.0"
+description = "Institutional-Grade MLOps Trading Engine Showcase"
+authors = [
+    {name = "Luciano Britis", email = "luciano@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "polars>=0.20.0",
+    "prefect>=2.14.0",
+    "numpy>=1.26.0",
+    "pandas>=2.1.0", # Used only for legacy connector compatibility
+]
+
+[tool.uv]
+managed = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
