@@ -1,6 +1,7 @@
 # Institutional-Grade MLOps Trading Engine (Architecture Showcase)
 
 [![CI Pipeline](https://github.com/LucianoBritis/mlops-architecture-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/LucianoBritis/mlops-architecture-showcase/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/github/actions/workflow/status/LucianoBritis/mlops-architecture-showcase/ci.yml?branch=main&label=Tests&logo=pytest)](https://github.com/LucianoBritis/mlops-architecture-showcase/actions/workflows/ci.yml)
 ![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json&style=for-the-badge)
 ![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=for-the-badge)
 
