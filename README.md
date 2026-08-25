@@ -65,3 +65,6 @@ $$ P_{adjusted}(t) = P_{raw}(t) - \sum_{i=t}^{T} \Delta Gap_i $$
 I am a Data Science and Analytics student at USP (Universidade de São Paulo) with a deep passion for quantitative finance, MLOps, and Data Engineering. My work focuses on building robust, highly available systems that bridge the gap between complex mathematical models and real-time execution.
 
 *Feel free to reach out to discuss Data Engineering, MLOps, or Quant Finance!*
+
+## Documentation
+- [B3 Futures Mechanics & The Rollover Problem](docs/domain_knowledge/futures_mechanics.md) - A deep dive into the mathematical anomalies caused by B3 contract rollovers and how our MLOps pipeline solves them.
