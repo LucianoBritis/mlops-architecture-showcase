@@ -82,10 +82,10 @@ def build_env(project_path: Path, dry_run: bool, asset: str, timeframe: str) -> 
         str(BACKEND_DIR),
         str(project_path),
         str(TRAINING_DIR),
-        str(TRAINING_DIR / "ml_1_quant_system"),
-        str(TRAINING_DIR / "ml_2_hft_system"),
-        str(TRAINING_DIR / "ml_3_saidec_system"),
-        str(TRAINING_DIR / "ml_4_series_temporais"),
+        str(TRAINING_DIR / "ml_module_quant"),
+        str(TRAINING_DIR / "ml_module_hft"),
+        str(TRAINING_DIR / "ml_module_alpha"),
+        str(TRAINING_DIR / "ml_module_timeseries"),
         env.get("PYTHONPATH", ""),
     ]
     env["PYTHONPATH"] = ":".join([p for p in pythonpaths if p])
@@ -235,7 +235,7 @@ async def run_ml2_hft(dry_run: bool, asset: str, timeframe: str):
         f"🤖 [ML-2] Iniciando HFT PPO Training para {asset} no timeframe {timeframe}..."
     )
 
-    p2 = TRAINING_DIR / "ml_2_hft_system"
+    p2 = TRAINING_DIR / "ml_module_hft"
     e2 = p2 / "training/train.py"
     env = build_env(p2, dry_run, asset, timeframe)
 
@@ -252,7 +252,7 @@ async def task_run_coint_futures(dry_run: bool, symbols: list):
     logger.info(
         f"🔗 [ML-0] Analisando Cointegração e Spread de Futuros para: {symbols}..."
     )
-    p0 = TRAINING_DIR / "ml_0_coint_system"
+    p0 = TRAINING_DIR / "ml_module_coint"
     e0 = p0 / "train_advanced_cointegration.py"
     env = build_env(p0, dry_run, ",".join(symbols), "M5")
     await run_training_script("ML-0 Cointegration [Futuros]", e0, p0, env)
@@ -266,7 +266,7 @@ def task_run_hawkes_futures(asset: str, timeframe: str = "M5"):
     """
     import numpy as np
     import polars as pl
-    from app.training.ml_4_series_temporais.hawkes_microstructure import (
+    from app.training.ml_module_timeseries.hawkes_microstructure import (
         MultivariateHawkesEstimator,
     )
     from app.training.shared_lib.paths import ProjectPaths
