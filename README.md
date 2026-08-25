@@ -1,4 +1,4 @@
-# 📊 Institutional-Grade MLOps Trading Engine (Architecture Showcase)
+# Institutional-Grade MLOps Trading Engine (Architecture Showcase)
 
 Welcome to the architectural showcase of my proprietary Quantitative Trading Engine. 
 
@@ -6,7 +6,7 @@ Due to the sensitive nature of the Alpha-generating strategies and proprietary s
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 The engine is built on a **Lakehouse Medallion Architecture**, optimizing high-frequency tick data ingestion, cleaning, and model serving.
 
@@ -40,14 +40,14 @@ graph TD
     end
 ```
 
-## 🛠️ Core Technologies
+## Core Technologies
 - **Data Engineering:** Polars (for ultra-fast dataframe manipulation), Lakehouse architecture.
 - **Orchestration:** Prefect (for modern, dynamic dataflow orchestration instead of legacy Airflow).
 - **Machine Learning:** Deep Reinforcement Learning (DRL) for dynamic position sizing, Retrieval-Augmented Generation (RAG) for semantic market analysis.
 - **Package Management:** `uv` for high-performance dependency resolution.
 - **Infrastructure:** Systemd tunings (timeout control), strict Linux environments (Manjaro).
 
-## 🔬 Mathematical Highlight: Futures Splicing & Rollovers
+## Mathematical Highlight: Futures Splicing & Rollovers
 
 One of the biggest challenges in Quant Engineering is dealing with continuous futures contracts. When rolling over from an expiring contract to a new one, artificial price gaps occur, destroying ML model training.
 
@@ -60,7 +60,7 @@ $$ P_{adjusted}(t) = P_{raw}(t) - \sum_{i=t}^{T} \Delta Gap_i $$
 - $\Delta Gap$ is the exact price difference recorded at the rollover boundary.
 - The cumulative backward shift ensures that historical volatilities and returns are preserved, preventing the DRL model from learning fake "jumps".
 
-## 🚀 About the Author
+## About the Author
 
 I am a Data Science and Analytics student at USP (Universidade de São Paulo) with a deep passion for quantitative finance, MLOps, and Data Engineering. My work focuses on building robust, highly available systems that bridge the gap between complex mathematical models and real-time execution.
 
