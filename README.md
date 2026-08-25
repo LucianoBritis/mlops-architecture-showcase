@@ -37,6 +37,7 @@ graph TD
 
 ## 🛠️ Core Technologies
 - **Data Engineering:** Polars (for ultra-fast dataframe manipulation), Lakehouse architecture.
+- **Orchestration:** Prefect (for modern, dynamic dataflow orchestration instead of legacy Airflow).
 - **Machine Learning:** Deep Reinforcement Learning (DRL) for dynamic position sizing, Retrieval-Augmented Generation (RAG) for semantic market analysis.
 - **Package Management:** `uv` for high-performance dependency resolution.
 - **Infrastructure:** Systemd tunings (timeout control), strict Linux environments (Manjaro).
