@@ -57,6 +57,6 @@ $$ P_{adjusted}(t) = P_{raw}(t) - \sum_{i=t}^{T} \Delta Gap_i $$
 
 ## 🚀 About the Author
 
-I am a **Senior MLOps & Data Engineer** specializing in quantitative finance. My work focuses on building robust, highly available systems that bridge the gap between complex mathematical models and real-time execution.
+I am a Data Science and Analytics student at USP (Universidade de São Paulo) with a deep passion for quantitative finance, MLOps, and Data Engineering. My work focuses on building robust, highly available systems that bridge the gap between complex mathematical models and real-time execution.
 
 *Feel free to reach out to discuss Data Engineering, MLOps, or Quant Finance!*
