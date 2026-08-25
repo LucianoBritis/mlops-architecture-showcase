@@ -1,21 +1,22 @@
 """
 SRE Obsidian Loop - Agentic Memory Auditor
-This script monitors the HFT Trading System logs for Machine Learning violations 
-(e.g., Concept Drift, Model Degradation, Execution Latency Spikes) and automatically 
+This script monitors the HFT Trading System logs for Machine Learning violations
+(e.g., Concept Drift, Model Degradation, Execution Latency Spikes) and automatically
 injects the audit results into an Obsidian vault for the Agent's "Golden Memory".
 """
 
-import os
 import logging
+import os
 from datetime import datetime
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class MLOpsAuditor:
     def __init__(self, vault_path: str):
         self.vault_path = vault_path
-        
+
     def audit_model_drift(self, model_metrics: dict) -> bool:
         """
         Simulates an SRE check on the DRL agent's PnL variance and Sharpe Ratio.
@@ -32,7 +33,7 @@ class MLOpsAuditor:
         """
         date_str = datetime.now().strftime("%Y-%m-%d")
         filepath = os.path.join(self.vault_path, f"SRE_Alert_{date_str}.md")
-        
+
         md_content = f"""# {alert_title}
 **Date:** {date_str}
 **Tags:** #sre #mlops #model-drift
@@ -44,8 +45,9 @@ class MLOpsAuditor:
 """
         with open(filepath, "w") as f:
             f.write(md_content)
-        
+
         logger.info(f"✅ SRE Alert injected into Obsidian Vault: {filepath}")
+
 
 # Usage Example:
 # auditor = MLOpsAuditor("/home/user/Obsidian/TradingVault")

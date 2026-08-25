@@ -14,8 +14,14 @@ dependencies = [
     "pandas>=2.1.0", # Used only for legacy connector compatibility
 ]
 
-[tool.uv]
-managed = true
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "ruff>=0.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
 
 [build-system]
 requires = ["hatchling"]
