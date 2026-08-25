@@ -4,6 +4,8 @@ from typing import Any
 import pandas as pd
 import polars as pl
 
+from .data_quality import LakehouseDataValidator
+
 
 # Mocked imports for showcase
 class PolarsDeltaRepository:
@@ -113,6 +115,12 @@ class SilverCleanser:
                 select_exprs.append(pl.col("original_contract"))
 
             lf = lf.select(select_exprs)
+
+            # --- DATA QUALITY & OBSERVABILITY GATE ---
+            # Instantiate and run the validator
+            validator = LakehouseDataValidator()
+            lf = validator.validate_silver_candles(lf, symbol)
+            # ---------------------------------------
 
             # Imputar 0 para colunas numéricas secundárias (volume/spread)
             lf = lf.with_columns(
