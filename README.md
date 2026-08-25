@@ -26,25 +26,25 @@ graph TD
     classDef sre fill:#5EC962,color:#000,stroke:#fff,stroke-width:2px;
 
     subgraph Data Sources
-        B3[B3 Futures Market]:::source --> |Tick Data| Ingest[MT5 Data Loader]:::source
+        B3["B3 Futures Market"]:::source --> |Tick Data| Ingest["MT5 Data Loader<br>(Prefect)"]:::source
     end
 
     subgraph Medallion Lakehouse
-        Ingest --> Bronze[(Bronze Layer)]:::medallion
-        Bronze --> |Raw Splicing| Silver[(Silver Layer)]:::medallion
-        Silver --> |Feature Eng & RAG| Gold[(Gold Layer)]:::medallion
+        Ingest --> Bronze[("Bronze Layer<br>(Raw)")]:::medallion
+        Bronze --> |Raw Splicing| Silver[("Silver Layer<br>(Polars)")]:::medallion
+        Silver --> |Feature Eng & RAG| Gold[("Gold Layer<br>(Polars)")]:::medallion
     end
 
     subgraph Machine Learning Pipeline
-        Gold --> DRL[Deep Reinforcement Learning]:::ml
-        Gold --> Semantic[SignalCortexRAG]:::ml
-        DRL --> Inference[Real-Time Inference Engine]:::ml
+        Gold --> DRL["Deep Reinforcement Learning<br>(PyTorch + MLflow)"]:::ml
+        Gold --> Semantic["SignalCortexRAG<br>(LLM)"]:::ml
+        DRL --> Inference["Real-Time Inference Engine"]:::ml
         Semantic --> Inference
     end
 
     subgraph SRE & Infrastructure
-        Inference --> Exec[Order Execution]:::sre
-        Exec --> Monitor[SRE Obsidian Loop]:::sre
+        Inference --> Exec["Order Execution<br>(Linux Systemd)"]:::sre
+        Exec --> Monitor["SRE Obsidian Loop<br>(Obsidian)"]:::sre
     end
 ```
 
