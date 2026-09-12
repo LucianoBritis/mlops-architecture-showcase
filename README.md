@@ -65,11 +65,11 @@ graph TD
 
 ## Destaque Matemático: Emenda de Contratos Futuros & Rolagem (*Splicing*)
 
-Um dos maiores desafios na Engenharia Quantitativa é lidar com **contratos futuros contínuos**. Quando ocorre a transição de um contrato prestes a vencer para o contrato do período subsequente (*rolagem*), surgem *gaps* de preço artificiais devido à taxa de juros embutida (*cost of carry*). Se esses *gaps* não forem tratados, eles destroem o treinamento dos modelos de Machine Learning.
+Um dos maiores desafios na Engenharia Quantitativa é lidar com **contratos futuros contínuos**. Quando ocorre a transição de um contrato prestes a vencer para o contrato do período subsequente (*rolagem*), surgem *gaps* de preço artificiais devido à taxa de juros embutida (*cost of carry*).
 
-Para resolver isso, a **Camada Silver** implementa um algoritmo matematicamente robusto de **Ajuste Retrógrado de Diferenças** (*Backward Difference Splicing*):
+Historicamente, o mercado utilizou o **Método Clássico de Ajuste Retrógrado de Diferenças** (*Panama Method / Backward Difference*):
 
-$$ P_{\text{ajustado}}(t) = P_{\text{bruto}}(t) - \sum_{i=t}^{T} \Delta \text{Gap}_i $$
+$$ P_{\text{clássico}}(t) = P_{\text{bruto}}(t) - \sum_{i=t}^{T} \Delta \text{Gap}_i $$
 
 ---
 

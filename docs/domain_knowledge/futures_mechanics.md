@@ -58,12 +58,12 @@ Se um modelo de Machine Learning (como uma rede de *Deep Reinforcement Learning*
 
 ---
 
-## 6. A Solução MLOps: *Backward Difference Splicing*
-Para resolver isso, a pipeline de dados na **Camada Silver** não alimenta dados brutos da B3 para os modelos. Nós calculamos o *Gap* exato de transição (ex: 1.200 pontos) e o subtraímos retroativamente de toda a série histórica do contrato anterior (`WING26`).
+## 6. O Método Clássico: *Backward Difference Splicing (Panama Method)*
+Historicamente, para resolver esse salto, o ajuste básico na **Camada Silver** calcula o *Gap* exato de transição (ex: 1.200 pontos) e o subtrai retroativamente de toda a série histórica do contrato anterior (`WING26`):
 
-$$ P_{\text{ajustado}}(t) = P_{\text{bruto}}(t) - \sum_{i=t}^{T} \Delta \text{Gap}_i $$
+$$ P_{\text{clássico}}(t) = P_{\text{bruto}}(t) - \sum_{i=t}^{T} \Delta \text{Gap}_i $$
 
-Esse deslocamento acumulado para trás garante que a série temporal se torne perfeitamente contínua. Os retornos percentuais e as volatilidades históricas são matematicamente preservados, permitindo que a rede neural seja treinada sobre a real variância do mercado sem ser poluída por rolagens artificiais.
+Esse deslocamento acumulado para trás garante a continuidade visual dos preços, mas altera a base do denominador para cálculos de retornos percentuais e pode gerar preços históricos negativos.
 
 ---
 
