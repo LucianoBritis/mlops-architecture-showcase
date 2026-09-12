@@ -1,0 +1,36 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v7
+    
+    - name: Install uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        version: "0.4.x"
+        
+    - name: Set up Python
+      uses: actions/setup-python@v7
+      with:
+        python-version: "3.11"
+        
+    - name: Install Dependencies
+      run: |
+        make setup
+        
+    - name: Run Ruff Linter
+      run: |
+        make lint
+        
+    - name: Run Pytest
+      run: |
+        make test
