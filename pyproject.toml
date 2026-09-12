@@ -20,8 +20,8 @@ keywords = [
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "polars>=0.20.0",
-    "prefect>=2.14.0",
+    "polars>=1.0.0",
+    "prefect>=3.0.0",
     "numpy>=1.26.0",
     "pandas>=2.1.0",
 ]

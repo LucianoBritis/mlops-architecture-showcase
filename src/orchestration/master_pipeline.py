@@ -2,7 +2,7 @@
 """
 master_pipeline.py
 ===================
-Orquestrador de Pipeline em Prefect 2.x para o Lakehouse de Derivativos (WIN / WDO).
+Orquestrador de Pipeline em Prefect 3.x para o Lakehouse de Derivativos (WIN / WDO).
 Gerencia o fluxo completo de dados em 4 etapas assíncronas e resilientes com política de retries e logs detalhados:
   1. Ingestão Bronze (Append-Only Raw Data com Retry Backoff)
   2. Limpeza & Emenda Silver (Fractional Diff + Baradel Rollover com Retry Backoff)
