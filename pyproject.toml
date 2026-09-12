@@ -3,7 +3,7 @@ name = "mlops-architecture-showcase"
 version = "1.0.0"
 description = "Institutional-Grade MLOps & Quantitative Trading Engine Showcase"
 authors = [
-    {name = "Luciano Britis", email = "lucianobritis@gmail.com"}
+    {name = "Luciano Britis", email = "lucianobritis@hotmail.com"}
 ]
 keywords = [
     "quant-finance",

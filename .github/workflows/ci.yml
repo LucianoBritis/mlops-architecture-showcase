@@ -12,9 +12,9 @@ jobs:
     env:
       ACTOR_NAME: "Luciano Britis"
       GIT_AUTHOR_NAME: "Luciano Britis"
-      GIT_AUTHOR_EMAIL: "lucianobritis@gmail.com"
+      GIT_AUTHOR_EMAIL: "lucianobritis@hotmail.com"
       GIT_COMMITTER_NAME: "Luciano Britis"
-      GIT_COMMITTER_EMAIL: "lucianobritis@gmail.com"
+      GIT_COMMITTER_EMAIL: "lucianobritis@hotmail.com"
     
     steps:
     - name: Checkout Repository
@@ -25,7 +25,7 @@ jobs:
     - name: Configure Git Actor Identity
       run: |
         git config --global user.name "Luciano Britis"
-        git config --global user.email "lucianobritis@gmail.com"
+        git config --global user.email "lucianobritis@hotmail.com"
         echo "Pipeline desencadeada por: Luciano Britis (${{ github.actor }})"
     
     - name: Install uv
