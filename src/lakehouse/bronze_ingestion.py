@@ -1,5 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
+from datetime import UTC
 from typing import Any
 
 import polars as pl
@@ -35,7 +36,7 @@ class LocalParquetBronzeIngestor(BronzeIngestor):
         self._base_path = base_path
 
     def save_raw_ticks(self, symbol: str, ticks: list[dict[str, Any]]) -> bool:
-        from datetime import datetime, timezone
+        from datetime import datetime
 
         try:
             if not ticks:
@@ -45,7 +46,7 @@ class LocalParquetBronzeIngestor(BronzeIngestor):
             last_tick = ticks[-1]
             if "time_msc" in last_tick:
                 tick_time = last_tick["time_msc"] / 1000.0
-                now_time = datetime.now(timezone.utc).timestamp()
+                now_time = datetime.now(UTC).timestamp()
                 drift = now_time - tick_time
                 if drift > 0.010:  # 10ms
                     logger.critical(

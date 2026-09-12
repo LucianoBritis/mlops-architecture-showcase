@@ -21,6 +21,8 @@ os.environ.setdefault(
     "PREFECT_API_DATABASE_CONNECTION_URL", "sqlite+aiosqlite:///:memory:"
 )
 
+from datetime import UTC
+
 from prefect import flow, get_run_logger, task
 
 from src.lakehouse.bronze_ingestion import LocalParquetBronzeIngestor
@@ -227,9 +229,9 @@ def master_pipeline(
             sample_data.get(symbol) if sample_data and symbol in sample_data else []
         )
         if not raw_candles:
-            from datetime import datetime, timedelta, timezone
+            from datetime import datetime, timedelta
 
-            base_time = datetime(2026, 1, 1, 9, 0, tzinfo=timezone.utc)
+            base_time = datetime(2026, 1, 1, 9, 0, tzinfo=UTC)
             raw_candles = [
                 {
                     "time": (base_time + timedelta(minutes=5 * i)).strftime(
